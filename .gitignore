@@ -1,0 +1,13 @@
+# Folders #
+.build
+.out
+.idea
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.class
+
+*.iml
+*.idea

@@ -43,15 +43,17 @@ public class Assignment3Client
         Assignment3Client a = new Assignment3Client();
 
         //READ PERSON LIST
+
+        a.log += "\n\n#1 READ PERSON LIST ==============\n";
         List<Person> pList = people.readPersonList();
         for(int i = 0; i < pList.size(); i++)
             a.printPerson(pList.get(i));
 
-        //READ PERSON
+        a.log += "\n\n#2 READ PERSON ==============\n";
         Person p1 = people.readPerson((long) 151);
         a.printPerson(p1);
 
-        //UPDATE PERSON
+        a.log += "\n\n#3 UPDATE PERSON ==============\n";
         Person p3 = new Person();
         p3.setLastname(p1.getLastname());
         p3.setId(p1.getId());
@@ -64,18 +66,19 @@ public class Assignment3Client
         p1 = people.updatePerson(p3);
         a.printPerson(p1);
 
-        //CREATE PERSON
+        a.log += "\n\n#4 CREATE PERSON ==============\n";
         Person p2 = a.makePerson("Artemisio", "Rossi");
         p2 =people.createPerson(p2);
         a.printPerson(p2);
 
-        //DELETE PERSON
+        a.log += "\n\n#5 DELETE PERSON ==============\n";
         people.deletePerson(p2.getId());
 
 
         //READ PERSON HISTORY
+        a.log += "\n\n#6 READ PERSON HISTORY ==============\n";
         List<Measure> mList = people.readPersonHistory(p1.getId(), "height");
-        System.out.println("HealthHistory");
+        System.out.println(p1.getId() +"  "+ mList.size());
         Measure m;
         for(int i = 0; i < mList.size(); i++)
         {
@@ -84,14 +87,16 @@ public class Assignment3Client
         }
 
         //READ MEASURE TYPES
+        a.log += "\n\n#7 READ MEASURE TYPES ==============\n";
         List<String> types = people.readMeasureTypes();
         System.out.println("Types");
         for(int i = 0; i < types.size(); i++)
         {
-            System.out.println(types.get(i));
+            a.log += types.get(i);
         }
 
         //READ PERSON MEASURES
+        a.log += "\n\n#8 READ PERSON MEASURE ==============\n";
         mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);
         for(int i = 0; i < mList.size(); i++)
         {
@@ -101,6 +106,7 @@ public class Assignment3Client
 
 
         //SAVE PERSON MEASURE
+        a.log += "\n\n#9 SAVE PERSON MEASURE ==============\n";
         Measure m1 = a.makeMeasure(1, "height", "123", "integer", p1);
         people.savePersonMeasure(p1.getId(), m1);
         mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);
@@ -111,6 +117,7 @@ public class Assignment3Client
         }
 
         //UPDATE PERSON MEASURE
+        a.log += "\n\n#10 UPDATE PERSON MEASURE ==============\n";
         m1.setMeasureValue("678");
         m1 = people.updatePersonMeasure(p1.getId(), m1);
         mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);

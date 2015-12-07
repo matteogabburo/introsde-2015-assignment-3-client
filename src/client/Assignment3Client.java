@@ -10,6 +10,9 @@ import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.net.URL;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -19,23 +22,24 @@ import java.util.List;
  */
 public class Assignment3Client
 {
+
+    static String LOGNAME = "client-server.log";
+    String log = "";
+
     public static void main(String[] args) throws Exception {
 
-        /*PeopleService service = new PeopleService();
-        People people = service.getPeopleImplementationPort();*/
+        PeopleService service = new PeopleService();
+        People people = service.getPeopleImplementationPort();
 
 
-        URL url = new URL("https://guarded-anchorage-1835.herokuapp.com/ws/people?wsdl");
+        /*URL url = new URL("http://127.0.1.1:6902");
         //1st argument service URI, refer to wsdl document above
         //2nd argument is service name, refer to wsdl document above
         QName qname = new QName("http://ws.document.introsde/", "PeopleService");
         Service service = Service.create(url, qname);
 
         People people = service.getPort(People.class);
-
-
-
-
+*/
         Assignment3Client a = new Assignment3Client();
 
         //READ PERSON LIST
@@ -115,6 +119,8 @@ public class Assignment3Client
             m = mList.get(i);
             a.printMeasure(m);
         }
+
+        a.makeLogs(a.log);
     }
 
     public Measure makeMeasure(long mid, String measureType, String value, String valueType, Person p) throws DatatypeConfigurationException
@@ -146,37 +152,49 @@ public class Assignment3Client
 
     public void printPerson(Person p)
     {
-        System.out.println("PERSON =========================================");
-        System.out.println("");
-        System.out.println("id : \t"+p.getId());
-        System.out.println("firstName : \t"+p.getFirstname());
-        System.out.println("lastName : \t"+p.getLastname());
+        this.log += "PERSON =========================================";
+        this.log +="\n";
+        this.log +="id : \t"+p.getId();
+        this.log +="firstName : \t"+p.getFirstname()+"\n";
+        this.log +="lastName : \t"+p.getLastname()+"\n";
 
         Measure m;
 
-        System.out.println("HealthHistory");
+        this.log +="HealthHistory"+"\n";
         List<Measure> pList = p.getHealthHistory();
         for(int i = 0; i < pList.size(); i++)
         {
             m = pList.get(i);
             this.printMeasure(m);
         }
-        System.out.println("CurrentHealth");
+        this.log +="CurrentHealth"+"\n";
         pList = p.getCurrentHealth();
         for(int i = 0; i < pList.size(); i++)
         {
             m = pList.get(i);
             this.printMeasure(m);
         }
-        System.out.println("");
-        System.out.println("================================================");
+        this.log +="\n";
+        this.log +="================================================\n";
     }
 
     public void printMeasure(Measure m)
     {
-        System.out.println("\tmid :\t"+m.getMid());
-        System.out.println("\tdateRegistered :\t"+m.getDateRegistered());
-        System.out.println("\tmeasureType :\t"+m.getMeasureType());
-        System.out.println("\tmeasureValue :\t"+m.getMeasureValue());
+        this.log +="\tmid :\t"+m.getMid()+"\n";
+        this.log +="\tdateRegistered :\t"+m.getDateRegistered()+"\n";
+        this.log +="\tmeasureType :\t"+m.getMeasureType()+"\n";
+        this.log +="\tmeasureValue :\t"+m.getMeasureValue()+"\n";
+    }
+
+    private void makeLogs(String xmlResp) throws IOException {
+        FileWriter logxml;
+        logxml = new FileWriter(this.LOGNAME);
+
+        BufferedWriter b;
+
+        System.out.println("Writing log...");
+        b=new BufferedWriter (logxml);
+        b.write(xmlResp);
+        b.flush();
     }
 }

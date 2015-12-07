@@ -8,6 +8,9 @@ import introsde.document.ws.Person;
 import javax.xml.datatype.DatatypeConfigurationException;
 import javax.xml.datatype.DatatypeFactory;
 import javax.xml.datatype.XMLGregorianCalendar;
+import javax.xml.namespace.QName;
+import javax.xml.ws.Service;
+import java.net.URL;
 import java.util.GregorianCalendar;
 import java.util.List;
 
@@ -18,8 +21,20 @@ public class Assignment3Client
 {
     public static void main(String[] args) throws Exception {
 
-        PeopleService service = new PeopleService();
-        People people = service.getPeopleImplementationPort();
+        /*PeopleService service = new PeopleService();
+        People people = service.getPeopleImplementationPort();*/
+
+
+        URL url = new URL("https://guarded-anchorage-1835.herokuapp.com/ws/people?wsdl");
+        //1st argument service URI, refer to wsdl document above
+        //2nd argument is service name, refer to wsdl document above
+        QName qname = new QName("http://ws.document.introsde/", "PeopleService");
+        Service service = Service.create(url, qname);
+
+        People people = service.getPort(People.class);
+
+
+
 
         Assignment3Client a = new Assignment3Client();
 

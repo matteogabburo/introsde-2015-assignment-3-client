@@ -10,6 +10,12 @@
 <message name="readPersonListResponse">
 <part name="parameters" element="tns:readPersonListResponse"/>
 </message>
+<message name="readPerson">
+<part name="parameters" element="tns:readPerson"/>
+</message>
+<message name="readPersonResponse">
+<part name="parameters" element="tns:readPersonResponse"/>
+</message>
 <message name="updatePerson">
 <part name="parameters" element="tns:updatePerson"/>
 </message>
@@ -40,6 +46,12 @@
 <message name="readMeasureTypesResponse">
 <part name="parameters" element="tns:readMeasureTypesResponse"/>
 </message>
+<message name="readPersonMeasures">
+<part name="parameters" element="tns:readPersonMeasures"/>
+</message>
+<message name="readPersonMeasuresResponse">
+<part name="parameters" element="tns:readPersonMeasuresResponse"/>
+</message>
 <message name="savePersonMeasure">
 <part name="parameters" element="tns:savePersonMeasure"/>
 </message>
@@ -52,16 +64,14 @@
 <message name="updatePersonMeasureResponse">
 <part name="parameters" element="tns:updatePersonMeasureResponse"/>
 </message>
-<message name="readPerson">
-<part name="parameters" element="tns:readPerson"/>
-</message>
-<message name="readPersonResponse">
-<part name="parameters" element="tns:readPersonResponse"/>
-</message>
 <portType name="People">
 <operation name="readPersonList">
 <input wsam:Action="http://ws.document.introsde/People/readPersonListRequest" message="tns:readPersonList"/>
 <output wsam:Action="http://ws.document.introsde/People/readPersonListResponse" message="tns:readPersonListResponse"/>
+</operation>
+<operation name="readPerson">
+<input wsam:Action="http://ws.document.introsde/People/readPersonRequest" message="tns:readPerson"/>
+<output wsam:Action="http://ws.document.introsde/People/readPersonResponse" message="tns:readPersonResponse"/>
 </operation>
 <operation name="updatePerson">
 <input wsam:Action="http://ws.document.introsde/People/updatePersonRequest" message="tns:updatePerson"/>
@@ -83,6 +93,10 @@
 <input wsam:Action="http://ws.document.introsde/People/readMeasureTypesRequest" message="tns:readMeasureTypes"/>
 <output wsam:Action="http://ws.document.introsde/People/readMeasureTypesResponse" message="tns:readMeasureTypesResponse"/>
 </operation>
+<operation name="readPersonMeasures">
+<input wsam:Action="http://ws.document.introsde/People/readPersonMeasuresRequest" message="tns:readPersonMeasures"/>
+<output wsam:Action="http://ws.document.introsde/People/readPersonMeasuresResponse" message="tns:readPersonMeasuresResponse"/>
+</operation>
 <operation name="savePersonMeasure">
 <input wsam:Action="http://ws.document.introsde/People/savePersonMeasureRequest" message="tns:savePersonMeasure"/>
 <output wsam:Action="http://ws.document.introsde/People/savePersonMeasureResponse" message="tns:savePersonMeasureResponse"/>
@@ -91,14 +105,19 @@
 <input wsam:Action="http://ws.document.introsde/People/updatePersonMeasureRequest" message="tns:updatePersonMeasure"/>
 <output wsam:Action="http://ws.document.introsde/People/updatePersonMeasureResponse" message="tns:updatePersonMeasureResponse"/>
 </operation>
-<operation name="readPerson">
-<input wsam:Action="http://ws.document.introsde/People/readPersonRequest" message="tns:readPerson"/>
-<output wsam:Action="http://ws.document.introsde/People/readPersonResponse" message="tns:readPersonResponse"/>
-</operation>
 </portType>
 <binding name="PeopleImplementationPortBinding" type="tns:People">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
 <operation name="readPersonList">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
+<operation name="readPerson">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>
@@ -152,6 +171,15 @@
 <soap:body use="literal"/>
 </output>
 </operation>
+<operation name="readPersonMeasures">
+<soap:operation soapAction=""/>
+<input>
+<soap:body use="literal"/>
+</input>
+<output>
+<soap:body use="literal"/>
+</output>
+</operation>
 <operation name="savePersonMeasure">
 <soap:operation soapAction=""/>
 <input>
@@ -162,15 +190,6 @@
 </output>
 </operation>
 <operation name="updatePersonMeasure">
-<soap:operation soapAction=""/>
-<input>
-<soap:body use="literal"/>
-</input>
-<output>
-<soap:body use="literal"/>
-</output>
-</operation>
-<operation name="readPerson">
 <soap:operation soapAction=""/>
 <input>
 <soap:body use="literal"/>

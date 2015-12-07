@@ -4,7 +4,9 @@ package introsde.document.ws;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlSchemaType;
 import javax.xml.bind.annotation.XmlType;
+import javax.xml.datatype.XMLGregorianCalendar;
 
 
 /**
@@ -17,6 +19,8 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
+ *         &lt;element name="dateRegistered" type="{http://www.w3.org/2001/XMLSchema}dateTime" minOccurs="0"/>
+ *         &lt;element name="idMeasure" type="{http://www.w3.org/2001/XMLSchema}long" minOccurs="0"/>
  *         &lt;element name="measureType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="measureValue" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="measureValueType" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -32,6 +36,8 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "measure", propOrder = {
+    "dateRegistered",
+    "idMeasure",
     "measureType",
     "measureValue",
     "measureValueType",
@@ -40,12 +46,63 @@ import javax.xml.bind.annotation.XmlType;
 })
 public class Measure {
 
+    @XmlSchemaType(name = "dateTime")
+    protected XMLGregorianCalendar dateRegistered;
+    protected Long idMeasure;
     protected String measureType;
     protected String measureValue;
     protected String measureValueType;
     protected Long mid;
     @XmlElement(namespace = "http://ws.document.introsde/")
     protected Person person;
+
+    /**
+     * Recupera il valore della proprietà dateRegistered.
+     * 
+     * @return
+     *     possible object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public XMLGregorianCalendar getDateRegistered() {
+        return dateRegistered;
+    }
+
+    /**
+     * Imposta il valore della proprietà dateRegistered.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link XMLGregorianCalendar }
+     *     
+     */
+    public void setDateRegistered(XMLGregorianCalendar value) {
+        this.dateRegistered = value;
+    }
+
+    /**
+     * Recupera il valore della proprietà idMeasure.
+     * 
+     * @return
+     *     possible object is
+     *     {@link Long }
+     *     
+     */
+    public Long getIdMeasure() {
+        return idMeasure;
+    }
+
+    /**
+     * Imposta il valore della proprietà idMeasure.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link Long }
+     *     
+     */
+    public void setIdMeasure(Long value) {
+        this.idMeasure = value;
+    }
 
     /**
      * Recupera il valore della proprietà measureType.

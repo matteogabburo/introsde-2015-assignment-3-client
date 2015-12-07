@@ -27,6 +27,7 @@ public class ObjectFactory {
     private final static QName _UpdatePerson_QNAME = new QName("http://ws.document.introsde/", "updatePerson");
     private final static QName _ReadPersonHistoryResponse_QNAME = new QName("http://ws.document.introsde/", "readPersonHistoryResponse");
     private final static QName _ReadPersonListResponse_QNAME = new QName("http://ws.document.introsde/", "readPersonListResponse");
+    private final static QName _ReadPersonMeasuresResponse_QNAME = new QName("http://ws.document.introsde/", "readPersonMeasuresResponse");
     private final static QName _UpdatePersonResponse_QNAME = new QName("http://ws.document.introsde/", "updatePersonResponse");
     private final static QName _DeletePersonResponse_QNAME = new QName("http://ws.document.introsde/", "deletePersonResponse");
     private final static QName _ReadPersonHistory_QNAME = new QName("http://ws.document.introsde/", "readPersonHistory");
@@ -38,6 +39,7 @@ public class ObjectFactory {
     private final static QName _ReadPerson_QNAME = new QName("http://ws.document.introsde/", "readPerson");
     private final static QName _CreatePerson_QNAME = new QName("http://ws.document.introsde/", "createPerson");
     private final static QName _ReadMeasureTypes_QNAME = new QName("http://ws.document.introsde/", "readMeasureTypes");
+    private final static QName _ReadPersonMeasures_QNAME = new QName("http://ws.document.introsde/", "readPersonMeasures");
     private final static QName _UpdatePersonMeasure_QNAME = new QName("http://ws.document.introsde/", "updatePersonMeasure");
     private final static QName _DeletePerson_QNAME = new QName("http://ws.document.introsde/", "deletePerson");
     private final static QName _CreatePersonResponse_QNAME = new QName("http://ws.document.introsde/", "createPersonResponse");
@@ -109,6 +111,14 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link ReadPersonMeasures }
+     * 
+     */
+    public ReadPersonMeasures createReadPersonMeasures() {
+        return new ReadPersonMeasures();
+    }
+
+    /**
      * Create an instance of {@link UpdatePersonMeasure }
      * 
      */
@@ -130,6 +140,14 @@ public class ObjectFactory {
      */
     public ReadPersonListResponse createReadPersonListResponse() {
         return new ReadPersonListResponse();
+    }
+
+    /**
+     * Create an instance of {@link ReadPersonMeasuresResponse }
+     * 
+     */
+    public ReadPersonMeasuresResponse createReadPersonMeasuresResponse() {
+        return new ReadPersonMeasuresResponse();
     }
 
     /**
@@ -240,6 +258,15 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadPersonMeasuresResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.document.introsde/", name = "readPersonMeasuresResponse")
+    public JAXBElement<ReadPersonMeasuresResponse> createReadPersonMeasuresResponse(ReadPersonMeasuresResponse value) {
+        return new JAXBElement<ReadPersonMeasuresResponse>(_ReadPersonMeasuresResponse_QNAME, ReadPersonMeasuresResponse.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link UpdatePersonResponse }{@code >}}
      * 
      */
@@ -336,6 +363,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://ws.document.introsde/", name = "readMeasureTypes")
     public JAXBElement<ReadMeasureTypes> createReadMeasureTypes(ReadMeasureTypes value) {
         return new JAXBElement<ReadMeasureTypes>(_ReadMeasureTypes_QNAME, ReadMeasureTypes.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link ReadPersonMeasures }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://ws.document.introsde/", name = "readPersonMeasures")
+    public JAXBElement<ReadPersonMeasures> createReadPersonMeasures(ReadPersonMeasures value) {
+        return new JAXBElement<ReadPersonMeasures>(_ReadPersonMeasures_QNAME, ReadPersonMeasures.class, null, value);
     }
 
     /**

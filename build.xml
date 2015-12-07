@@ -123,4 +123,19 @@
             <classes dir="${build.dir}"/>
         </war>
     </target>
-</project>
+
+            <target name="execute.client">
+                <echo message="app start  in ${build.dir}" />
+                <java classname="client.Assignment3Client" classpath="${build.dir}" fork="true">
+                    <arg value="$JAVA_OPTS  -cp" />
+                    <classpath>
+                        <path location="build" />
+                        <fileset dir="WebContent/WEB-INF/lib">
+                            <include name="**/*.jar" />
+                            <include name="*.jar" />
+                        </fileset>
+                    </classpath>
+                </java>
+            </target>
+
+        </project>

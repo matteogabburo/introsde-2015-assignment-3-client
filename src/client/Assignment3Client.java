@@ -1,9 +1,14 @@
 package client;
 
+import introsde.document.ws.Measure;
 import introsde.document.ws.People;
 import introsde.document.ws.PeopleService;
 import introsde.document.ws.Person;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -12,48 +17,144 @@ import java.util.List;
 public class Assignment3Client
 {
     public static void main(String[] args) throws Exception {
-        PeopleService service = new PeopleService();
 
+        PeopleService service = new PeopleService();
         People people = service.getPeopleImplementationPort();
 
+        Assignment3Client a = new Assignment3Client();
 
-        //Create Person
-       /* Person p1 = new Person();
-        p1.setFirstname("Primo");
-        p1.setLastname("Rossi");
+        //READ PERSON LIST
+        List<Person> pList = people.readPersonList();
+        for(int i = 0; i < pList.size(); i++)
+            a.printPerson(pList.get(i));
 
-        people.createPerson(p1);
-          */
-        //Read Person
-        Person p = people.readPerson((long) 1);
+        //READ PERSON
+        Person p1 = people.readPerson((long) 151);
+        a.printPerson(p1);
 
-        System.out.println(p.getFirstname());
-        System.out.println(p.getLastname());
+        //UPDATE PERSON
+        p1.setFirstname("Ambrogio");
 
-        /*List<Person> pList = people.readPersonList();
-        System.out.println("Result ==> "+p);
-        System.out.println("Result ==> "+pList);
-        System.out.println("First Person in the list ==> "+pList.get(0).getFirstname());*/
+        p1 = people.updatePerson(p1);
+        a.printPerson(p1);
+
+        //CREATE PERSON
+        Person p2 = a.makePerson("Artemisio", "Rossi");
+        p2 =people.createPerson(p2);
+        a.printPerson(p2);
+
+        //DELETE PERSON
+        people.deletePerson(p2.getId());
+
+
+        //READ PERSON HISTORY
+        List<Measure> mList = people.readPersonHistory(p1.getId(), "height");
+        System.out.println("HealthHistory");
+        Measure m;
+        for(int i = 0; i < mList.size(); i++)
+        {
+            m = mList.get(i);
+            a.printMeasure(m);
+        }
+
+        //READ MEASURE TYPES
+        List<String> types = people.readMeasureTypes();
+        System.out.println("Types");
+        for(int i = 0; i < pList.size(); i++)
+        {
+            System.out.println(types.get(i));
+        }
+
+        //READ PERSON MEASURES
+        mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);
+        for(int i = 0; i < mList.size(); i++)
+        {
+            m = mList.get(i);
+            a.printMeasure(m);
+        }
+
+
+        //SAVE PERSON MEASUR
+        Measure m1 = a.makeMeasure(1, "height", "123", "integer", p1);
+        people.savePersonMeasure(p1.getId(), m1);
+        mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);
+        for(int i = 0; i < mList.size(); i++)
+        {
+            m = mList.get(i);
+            a.printMeasure(m);
+        }
+
+        //UPDATE PERSON MEASURE
+        m1.setMeasureValue("678");
+        people.updatePersonMeasure(p1.getId(), m1);
+        mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);
+        for(int i = 0; i < mList.size(); i++)
+        {
+            m = mList.get(i);
+            a.printMeasure(m);
+        }
+    }
+
+    public Measure makeMeasure(long mid, String measureType, String value, String valueType, Person p) throws DatatypeConfigurationException
+    {
+        Measure m = new Measure();
+        m.setMid(mid);
+        m.setMeasureType(measureType);
+        m.setMeasureValue(value);
+        m.setMeasureValueType(valueType);
+        m.setPerson(p);
+
+        GregorianCalendar c = new GregorianCalendar();
+        c.setTime(c.getTime());
+        XMLGregorianCalendar date = DatatypeFactory.newInstance().newXMLGregorianCalendar(c);
+        m.setDateRegistered(date);
+
+        return m;
+    }
+
+    public Person makePerson(String firstname, String lastname)
+    {
+        Person p = new Person();
+
+        p.setFirstname(firstname);
+        p.setLastname(lastname);
+
+        return p;
+    }
+
+    public void printPerson(Person p)
+    {
+        System.out.println("PERSON =========================================");
+        System.out.println("");
+        System.out.println("id : \t"+p.getId());
+        System.out.println("firstName : \t"+p.getFirstname());
+        System.out.println("lastName : \t"+p.getLastname());
+
+        Measure m;
+
+        System.out.println("HealthHistory");
+        List<Measure> pList = p.getHealthHistory();
+        for(int i = 0; i < pList.size(); i++)
+        {
+            m = pList.get(i);
+            this.printMeasure(m);
+        }
+        System.out.println("CurrentHealth");
+        pList = p.getCurrentHealth();
+        for(int i = 0; i < pList.size(); i++)
+        {
+            m = pList.get(i);
+            this.printMeasure(m);
+        }
+        System.out.println("");
+        System.out.println("================================================");
+    }
+
+    public void printMeasure(Measure m)
+    {
+        System.out.println("\tmid :\t"+m.getMid());
+        System.out.println("\tdateRegistered :\t"+m.getDateRegistered());
+        System.out.println("\tmeasureType :\t"+m.getMeasureType());
+        System.out.println("\tmeasureValue :\t"+m.getMeasureValue());
     }
 }
-
-/*
-package client;
-
-        import java.util.List;
-
-        import introsde.document.ws.PeopleService;
-        import introsde.document.ws.People;
-        import introsde.document.ws.Person;
-
-public class PeopleClient{
-    public static void main(String[] args) throws Exception {
-        PeopleService service = new PeopleService();
-        People people = service.getPeopleImplPort();
-        Person p = people.readPerson(1);
-        List<Person> pList = people.getPeopleList();
-        System.out.println("Result ==> "+p);
-        System.out.println("Result ==> "+pList);
-        System.out.println("First Person in the list ==> "+pList.get(0).getName());
-    }
-}*/

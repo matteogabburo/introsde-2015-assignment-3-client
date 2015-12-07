@@ -45,6 +45,21 @@ public interface People {
      */
     @WebMethod
     @WebResult(name = "person", targetNamespace = "http://ws.document.introsde/")
+    @RequestWrapper(localName = "readPerson", targetNamespace = "http://ws.document.introsde/", className = "introsde.document.ws.ReadPerson")
+    @ResponseWrapper(localName = "readPersonResponse", targetNamespace = "http://ws.document.introsde/", className = "introsde.document.ws.ReadPersonResponse")
+    @Action(input = "http://ws.document.introsde/People/readPersonRequest", output = "http://ws.document.introsde/People/readPersonResponse")
+    public Person readPerson(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Long arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns introsde.document.ws.Person
+     */
+    @WebMethod
+    @WebResult(name = "person", targetNamespace = "http://ws.document.introsde/")
     @RequestWrapper(localName = "updatePerson", targetNamespace = "http://ws.document.introsde/", className = "introsde.document.ws.UpdatePerson")
     @ResponseWrapper(localName = "updatePersonResponse", targetNamespace = "http://ws.document.introsde/", className = "introsde.document.ws.UpdatePersonResponse")
     @Action(input = "http://ws.document.introsde/People/updatePersonRequest", output = "http://ws.document.introsde/People/updatePersonResponse")
@@ -111,6 +126,27 @@ public interface People {
 
     /**
      * 
+     * @param arg2
+     * @param arg1
+     * @param arg0
+     * @return
+     *     returns java.util.List<introsde.document.ws.Measure>
+     */
+    @WebMethod
+    @WebResult(name = "measures", targetNamespace = "")
+    @RequestWrapper(localName = "readPersonMeasures", targetNamespace = "http://ws.document.introsde/", className = "introsde.document.ws.ReadPersonMeasures")
+    @ResponseWrapper(localName = "readPersonMeasuresResponse", targetNamespace = "http://ws.document.introsde/", className = "introsde.document.ws.ReadPersonMeasuresResponse")
+    @Action(input = "http://ws.document.introsde/People/readPersonMeasuresRequest", output = "http://ws.document.introsde/People/readPersonMeasuresResponse")
+    public List<Measure> readPersonMeasures(
+        @WebParam(name = "arg0", targetNamespace = "")
+        Long arg0,
+        @WebParam(name = "arg1", targetNamespace = "")
+        String arg1,
+        @WebParam(name = "arg2", targetNamespace = "")
+        Long arg2);
+
+    /**
+     * 
      * @param arg1
      * @param arg0
      * @return
@@ -144,20 +180,5 @@ public interface People {
         Long arg0,
         @WebParam(name = "arg1", targetNamespace = "")
         Measure arg1);
-
-    /**
-     * 
-     * @param arg0
-     * @return
-     *     returns introsde.document.ws.Person
-     */
-    @WebMethod
-    @WebResult(name = "person", targetNamespace = "http://ws.document.introsde/")
-    @RequestWrapper(localName = "readPerson", targetNamespace = "http://ws.document.introsde/", className = "introsde.document.ws.ReadPerson")
-    @ResponseWrapper(localName = "readPersonResponse", targetNamespace = "http://ws.document.introsde/", className = "introsde.document.ws.ReadPersonResponse")
-    @Action(input = "http://ws.document.introsde/People/readPersonRequest", output = "http://ws.document.introsde/People/readPersonResponse")
-    public Person readPerson(
-        @WebParam(name = "arg0", targetNamespace = "")
-        Long arg0);
 
 }

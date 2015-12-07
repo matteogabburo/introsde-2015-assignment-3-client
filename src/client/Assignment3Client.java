@@ -33,9 +33,16 @@ public class Assignment3Client
         a.printPerson(p1);
 
         //UPDATE PERSON
-        p1.setFirstname("Ambrogio");
+        Person p3 = new Person();
+        p3.setLastname(p1.getLastname());
+        p3.setId(p1.getId());
 
-        p1 = people.updatePerson(p1);
+        if(p1.getFirstname().equals("Ambrogio"))
+            p3.setFirstname("Mario");
+        else
+            p3.setFirstname("Ambrogio");
+
+        p1 = people.updatePerson(p3);
         a.printPerson(p1);
 
         //CREATE PERSON
@@ -60,7 +67,7 @@ public class Assignment3Client
         //READ MEASURE TYPES
         List<String> types = people.readMeasureTypes();
         System.out.println("Types");
-        for(int i = 0; i < pList.size(); i++)
+        for(int i = 0; i < types.size(); i++)
         {
             System.out.println(types.get(i));
         }
@@ -74,7 +81,7 @@ public class Assignment3Client
         }
 
 
-        //SAVE PERSON MEASUR
+        //SAVE PERSON MEASURE
         Measure m1 = a.makeMeasure(1, "height", "123", "integer", p1);
         people.savePersonMeasure(p1.getId(), m1);
         mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);
@@ -86,7 +93,7 @@ public class Assignment3Client
 
         //UPDATE PERSON MEASURE
         m1.setMeasureValue("678");
-        people.updatePersonMeasure(p1.getId(), m1);
+        m1 = people.updatePersonMeasure(p1.getId(), m1);
         mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);
         for(int i = 0; i < mList.size(); i++)
         {

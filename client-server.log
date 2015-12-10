@@ -5,7 +5,7 @@ https://guarded-anchorage-1835.herokuapp.com/ws/people?wsdl
 #1 READ PERSON LIST ==============
 PERSON =========================================
 id : 	1
-firstName : 	Mario
+firstName : 	Ambrogio
 lastName : 	Rossi
 HealthHistory
 	mid :	1
@@ -20,43 +20,19 @@ HealthHistory
 	dateRegistered :	2015-12-20T23:00:00Z
 	measureType :	weight
 	measureValue :	134
-	mid :	4
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	5
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	6
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	7
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	8
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	123
-	mid :	9
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	678
-	mid :	10
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	123
-	mid :	11
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	678
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
 CurrentHealth
-	mid :	4
-	dateRegistered :	2015-12-09T23:00:00Z
+	mid :	2
+	dateRegistered :	2015-12-06T23:00:00Z
 	measureType :	height
-	measureValue :	123
+	measureValue :	254
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
 	mid :	3
 	dateRegistered :	2015-12-20T23:00:00Z
 	measureType :	weight
@@ -76,40 +52,6 @@ CurrentHealth
 #2 READ PERSON ==============
 PERSON =========================================
 id : 	1
-firstName : 	Mario
-lastName : 	Rossi
-HealthHistory
-CurrentHealth
-
-================================================
-
-
-#3 UPDATE PERSON ==============
-PERSON =========================================
-id : 	1
-firstName : 	Ambrogio
-lastName : 	Rossi
-HealthHistory
-CurrentHealth
-
-================================================
-PERSON =========================================
-id : 	905
-firstName : 	Artemisio
-lastName : 	Rossi
-HealthHistory
-CurrentHealth
-
-================================================
-
-
-#5 DELETE PERSON ==============
-
-
-Delete..
-CHECK IF CREATED PERSON IS REALLY DELETED
-PERSON =========================================
-id : 	1
 firstName : 	Ambrogio
 lastName : 	Rossi
 HealthHistory
@@ -125,43 +67,85 @@ HealthHistory
 	dateRegistered :	2015-12-20T23:00:00Z
 	measureType :	weight
 	measureValue :	134
-	mid :	4
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	5
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	6
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	7
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	8
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	123
-	mid :	9
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	678
-	mid :	10
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	123
-	mid :	11
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	678
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
 CurrentHealth
-	mid :	4
-	dateRegistered :	2015-12-09T23:00:00Z
+	mid :	1
+	dateRegistered :	2015-11-30T23:00:00Z
 	measureType :	height
 	measureValue :	123
+	mid :	2
+	dateRegistered :	2015-12-06T23:00:00Z
+	measureType :	height
+	measureValue :	254
+	mid :	3
+	dateRegistered :	2015-12-20T23:00:00Z
+	measureType :	weight
+	measureValue :	134
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
+
+================================================
+
+
+#3 UPDATE PERSON ==============
+PERSON =========================================
+id : 	1
+firstName : 	Mario
+lastName : 	Rossi
+HealthHistory
+CurrentHealth
+
+================================================
+PERSON =========================================
+id : 	1653
+firstName : 	Artemisio
+lastName : 	Rossi
+HealthHistory
+CurrentHealth
+
+================================================
+
+
+#5 DELETE PERSON ==============
+
+
+Delete..
+CHECK IF CREATED PERSON IS REALLY DELETED
+PERSON =========================================
+id : 	1
+firstName : 	Mario
+lastName : 	Rossi
+HealthHistory
+	mid :	1
+	dateRegistered :	2015-11-30T23:00:00Z
+	measureType :	height
+	measureValue :	123
+	mid :	2
+	dateRegistered :	2015-12-06T23:00:00Z
+	measureType :	height
+	measureValue :	254
+	mid :	3
+	dateRegistered :	2015-12-20T23:00:00Z
+	measureType :	weight
+	measureValue :	134
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
+CurrentHealth
+	mid :	2
+	dateRegistered :	2015-12-06T23:00:00Z
+	measureType :	height
+	measureValue :	254
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
 	mid :	3
 	dateRegistered :	2015-12-20T23:00:00Z
 	measureType :	weight
@@ -191,42 +175,15 @@ CurrentHealth
 	dateRegistered :	2015-12-20T23:00:00Z
 	measureType :	weight
 	measureValue :	134
-	mid :	4
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	5
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	6
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	7
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	8
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	123
-	mid :	9
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	678
-	mid :	10
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	123
-	mid :	11
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	678
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
 
 
 #7 READ MEASURE TYPES ==============
 height
+steps
 weight
 
 
@@ -243,38 +200,10 @@ weight
 	dateRegistered :	2015-12-20T23:00:00Z
 	measureType :	weight
 	measureValue :	134
-	mid :	4
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	5
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	6
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	7
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	8
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	123
-	mid :	9
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	678
-	mid :	10
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	123
-	mid :	11
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	678
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
 
 
 #9 SAVE PERSON MEASURE ==============
@@ -290,40 +219,12 @@ weight
 	dateRegistered :	2015-12-20T23:00:00Z
 	measureType :	weight
 	measureValue :	134
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
 	mid :	4
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	5
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	6
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	7
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	8
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	123
-	mid :	9
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	678
-	mid :	10
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	123
-	mid :	11
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	678
-	mid :	12
-	dateRegistered :	2015-12-09T23:57:52.769Z
+	dateRegistered :	2015-12-10T01:14:59.328Z
 	measureType :	height
 	measureValue :	123
 
@@ -341,43 +242,11 @@ weight
 	dateRegistered :	2015-12-20T23:00:00Z
 	measureType :	weight
 	measureValue :	134
+	mid :	1
+	dateRegistered :	2015-12-14T23:00:00Z
+	measureType :	steps
+	measureValue :	12
 	mid :	4
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	5
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	6
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	123
-	mid :	7
-	dateRegistered :	2015-12-09T23:00:00Z
-	measureType :	height
-	measureValue :	678
-	mid :	8
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	123
-	mid :	9
-	dateRegistered :	2015-12-09T23:56:44.137Z
-	measureType :	height
-	measureValue :	678
-	mid :	10
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	123
-	mid :	11
-	dateRegistered :	2015-12-09T23:57:22.524Z
-	measureType :	height
-	measureValue :	678
-	mid :	12
-	dateRegistered :	2015-12-09T23:57:52.769Z
-	measureType :	height
-	measureValue :	123
-	mid :	13
-	dateRegistered :	2015-12-09T23:57:52.769Z
+	dateRegistered :	2015-12-10T01:14:59.328Z
 	measureType :	height
 	measureValue :	678

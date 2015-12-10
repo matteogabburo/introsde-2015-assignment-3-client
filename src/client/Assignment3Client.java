@@ -32,6 +32,8 @@ public class Assignment3Client
         People people = service.getPeopleImplementationPort();*/
 
         String serverUrl = "https://guarded-anchorage-1835.herokuapp.com/ws/people?wsdl";
+        //String serverUrl = "http://127.0.1.1:6902/ws/people?wsdl";
+
 
         URL url = new URL(serverUrl);
         //1st argument service URI, refer to wsdl document above
@@ -143,7 +145,7 @@ public class Assignment3Client
         //SAVE PERSON MEASURE
         tmp += "\n\n#9 SAVE PERSON MEASURE ==============\n";
         Measure m1 = a.makeMeasure(1, "height", "123", "integer", p1);
-        people.savePersonMeasure(p1.getId(), m1);
+        m1 = people.savePersonMeasure(p1.getId(), m1);
         mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);
         for(int i = 0; i < mList.size(); i++)
         {
@@ -157,6 +159,7 @@ public class Assignment3Client
         //UPDATE PERSON MEASURE
         tmp += "\n\n#10 UPDATE PERSON MEASURE ==============\n";
         m1.setMeasureValue("678");
+        System.out.println(m1.getIdMeasure());
         m1 = people.updatePersonMeasure(p1.getId(), m1);
         mList = people.readPersonMeasures(p1.getId(), "height" ,(long)1);
         for(int i = 0; i < mList.size(); i++)

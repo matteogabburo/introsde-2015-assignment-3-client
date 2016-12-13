@@ -31,7 +31,7 @@ public class Assignment3Client
         /*PeopleService service = new PeopleService();
         People people = service.getPeopleImplementationPort();*/
 
-        String serverUrl = "https://guarded-anchorage-1835.herokuapp.com/ws/people?wsdl";
+        String serverUrl = "https://hidden-earth-30101.herokuapp.com/ws/people?wsdl";
         //String serverUrl = "http://127.0.1.1:6902/ws/people?wsdl";
 
 
@@ -85,7 +85,7 @@ public class Assignment3Client
         tmp += "\n\n#4 CREATE PERSON ==============\n";
         Person p2 = a.makePerson("Artemisio", "Rossi");
         p2 =people.createPerson(p2);
-        tmp = a.printPerson(p2);
+        tmp += a.printPerson(p2);
         a.log += tmp;
         System.out.println(tmp);
         tmp = "";
